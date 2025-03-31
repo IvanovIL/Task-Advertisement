@@ -22,7 +22,7 @@ namespace Test_task_Advertising_platforms.Controllers
         }
 
         /// <summary>
-        ///  Загружает из файла json данные рекламы
+        ///  Загрузка данных рекламных площадок с json файла
         /// <summary>
         [HttpGet]
         [Route("Loading advertising platform data")]
@@ -39,13 +39,13 @@ namespace Test_task_Advertising_platforms.Controllers
 
             AdvertisementLists = JsonConvert.DeserializeObject<List<Advertisement>>(file);
 
-            return Ok("Äàííûå çàãðóæåíû");
+            return Ok("Ã„Ã Ã­Ã­Ã»Ã¥ Ã§Ã Ã£Ã°Ã³Ã¦Ã¥Ã­Ã»");
         }
 
         /// <summary>
-        /// Находит рекламные площадки по локациям
+        ///Поиск рекламных площадок по локации
         /// </summary>
-        /// <param name="NameDomen">Наименование локации</param>
+        /// <param name="NameDomen">Наименование рекламной площадки</param>
         [HttpPost]
         [Route("Find ads by location")]
         public async Task<List<Advertisement>> FindAdvertisementAsync(string NameDomen)
@@ -85,8 +85,8 @@ namespace Test_task_Advertising_platforms.Controllers
             {
                 advertisements.Add(new Advertisement
                 {
-                    Name = "�� ������� ��������� ��������",
-                    DomenName = ["��������� ������������ ��������� �������, ��� �� ��������� ������ �� ����������"],
+                    Name = "Не найдена реклаиная локация",
+                    DomenName = ["Проверьте правильность написания локации", "Она должна быть на писана строго на английскком"],
                 });
             }
             return advertisements;
