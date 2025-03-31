@@ -52,8 +52,6 @@ namespace Test_task_Advertising_platforms.Controllers
         {
             List<Advertisement> advertisements = new List<Advertisement>();
 
-            int id = 0;
-
             NameDomen = NameDomen.ToLower();
 
             if (NameDomen.StartsWith('/') == false)
@@ -65,15 +63,14 @@ namespace Test_task_Advertising_platforms.Controllers
             {
                 foreach (var item in advertisement.DomenName)
                 {
-
                     if (item.Length <= NameDomen.Length)
                     {
 
-                        if (NameDomen.EndsWith("/ru") | item.EndsWith("/ru"))
+                        if (NameDomen.StartsWith("ru") & item.EndsWith("ru"))
                         {
                             advertisements.Add(advertisement);
                         }
-                        else if(item.Equals(NameDomen))
+                        else if (item.Equals(NameDomen))
                         {
                             advertisements.Add(advertisement);
                         }
@@ -81,13 +78,17 @@ namespace Test_task_Advertising_platforms.Controllers
                         {
                             advertisements.Add(advertisement);
                         }
-
-
                     }
                 }
-
             }
-
+            if (advertisements.Count == 0)
+            {
+                advertisements.Add(new Advertisement
+                {
+                    Name = "Ќе найдена рекламна€ площадка",
+                    DomenName = ["ѕроверьте правильность написани€ локации, так же написание строго на английском"],
+                });
+            }
             return advertisements;
 
         }
