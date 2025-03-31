@@ -22,8 +22,8 @@ namespace Test_task_Advertising_platforms.Controllers
         }
 
         /// <summary>
-        /// Загружает из файла json данные рекламы
-        /// </summary>
+        ///  Р—Р°РіСЂСѓР¶Р°РµС‚ РёР· С„Р°Р№Р»Р° json РґР°РЅРЅС‹Рµ СЂРµРєР»Р°РјС‹
+        /// <summary>
         [HttpGet]
         [Route("Loading advertising platform data")]
         public async Task<IActionResult> Upload()
@@ -39,13 +39,13 @@ namespace Test_task_Advertising_platforms.Controllers
 
             AdvertisementLists = JsonConvert.DeserializeObject<List<Advertisement>>(file);
 
-            return Ok("Данные загружены");
+            return Ok("Г„Г Г­Г­Г»ГҐ Г§Г ГЈГ°ГіГ¦ГҐГ­Г»");
         }
 
         /// <summary>
-        /// Находит рекламные площадки по локациям
+        /// РќР°С…РѕРґРёС‚ СЂРµРєР»Р°РјРЅС‹Рµ РїР»РѕС‰Р°РґРєРё РїРѕ Р»РѕРєР°С†РёСЏРј
         /// </summary>
-        /// <param name="NameDomen">Наименование локации</param>
+        /// <param name="NameDomen">РќР°РёРјРµРЅРѕРІР°РЅРёРµ Р»РѕРєР°С†РёРё</param>
         [HttpPost]
         [Route("Find ads by location")]
         public async Task<List<Advertisement>> FindAdvertisementAsync(string NameDomen)
