@@ -1,7 +1,7 @@
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
-
+.devcontainer/*.json linguist-language=JSON-with-Comments
 *.txt filter=winutf16
 
 ###############################################################################
