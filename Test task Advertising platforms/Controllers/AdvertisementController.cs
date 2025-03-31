@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Test_task_Advertising_platforms;
 
 namespace Test_task_Advertising_platforms.Controllers
 {
@@ -26,7 +25,7 @@ namespace Test_task_Advertising_platforms.Controllers
         /// Загружает из файла json данные рекламы
         /// </summary>
         [HttpGet]
-        [Route("Загрузка данных рекламных площадок")]
+        [Route("Loading advertising platform data")]
         public async Task<IActionResult> Upload()
         {
             string path = _configuration.GetSection("PathInJson:Json").Value;
@@ -48,7 +47,7 @@ namespace Test_task_Advertising_platforms.Controllers
         /// </summary>
         /// <param name="NameDomen">Наименование локации</param>
         [HttpPost]
-        [Route("Найти рекламу по локации")]
+        [Route("Find ads by location")]
         public async Task<List<Advertisement>> FindAdvertisementAsync(string NameDomen)
         {
             List<Advertisement> advertisements = new List<Advertisement>();
